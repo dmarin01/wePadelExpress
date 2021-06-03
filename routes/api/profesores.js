@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    res.send('api/profesores funchiona')
+    res.send('esto funciona')
 })
 
 module.exports = router;
