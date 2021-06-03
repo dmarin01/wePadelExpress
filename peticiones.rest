@@ -1,0 +1,8 @@
+GET http://localhost:3000/api/clientes
+###
+
+GET http://localhost:3000/api/profesores
+###
+
+GET http://localhost:3000/api/usuarios
+###
