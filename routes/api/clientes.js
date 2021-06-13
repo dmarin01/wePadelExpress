@@ -1,7 +1,17 @@
+const { getAllUsers } = require('../../models/clientes.model');
+
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.send('api/clientes funchiona')
+router.get('/', async (req, res) => {
+    try {
+        const users = await getAllUsers()
+        res.json(users)
+    } catch (err) {
+        res.json({ error: err.message })
+    }
+
 })
+
+
 
 module.exports = router;
