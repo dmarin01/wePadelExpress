@@ -19,7 +19,15 @@ const getByEmail = (email) => {
 }
 
 
+const getById = (idUser) => {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM usuarios where id = ?', [idUser], (err, result) => {
+            if (err) reject(err);
+            resolve(result)
+        })
+    })
+}
 
 
 
-module.exports = { createUser, getByEmail }
+module.exports = { createUser, getByEmail, getById }

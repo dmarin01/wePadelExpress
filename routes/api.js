@@ -1,5 +1,6 @@
 
 const router = require('express').Router();
+const { checkToken } = require('./middleware')
 
 const apiClientesRouter = require('./api/clientes');
 const apiProfesoresRouter = require('./api/profesores');

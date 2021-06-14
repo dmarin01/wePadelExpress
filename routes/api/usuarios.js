@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
 
     const same = bscrypt.compareSync(req.body.password, user.password);
     if (same) {
-        res.json({ sucess: 'Bienvenido', token: createToken(user) })
+        res.json({ success: 'Bienvenido', token: createToken(user) })
     } else {
         res.json({ error: 'El email y/o contraseña son incorrectos 2' })
     }
@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
 
 function createToken(user) {
     const obj = {
-        usuario_id: user.id,
+        user_id: user.id,
         expiration: dayjs().add(3, 'M').unix()
     }
     return jwt.sign(obj, 'token user')
