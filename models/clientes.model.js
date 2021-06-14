@@ -5,7 +5,6 @@ const getAllUsers = () => {
             if (err) reject(err);
             resolve(rows)
         })
-
     });
 }
 
@@ -17,4 +16,8 @@ const getAllUsers = () => {
 
 
 
-module.exports = { getAllUsers }
+
+
+
+
+module.exports = { getAllUsers, }

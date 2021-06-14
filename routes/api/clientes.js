@@ -1,4 +1,5 @@
 const { getAllUsers } = require('../../models/clientes.model');
+const { getById } = require('../../models/usuario.model')
 
 const router = require('express').Router();
 
@@ -9,7 +10,16 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.json({ error: err.message })
     }
+})
 
+router.get('/user/:id', async (req, res) => {
+    try {
+        const update = await getById(req.params.id)
+        res.json(update)
+
+    } catch (err) {
+        res.json({ error: err.message })
+    }
 })
 
 

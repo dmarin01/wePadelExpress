@@ -23,7 +23,7 @@ const getById = (idUser) => {
     return new Promise((resolve, reject) => {
         db.query('SELECT * FROM usuarios where id = ?', [idUser], (err, result) => {
             if (err) reject(err);
-            resolve(result)
+            resolve(result[0])
         })
     })
 }

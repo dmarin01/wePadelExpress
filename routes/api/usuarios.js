@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
 
     const same = bscrypt.compareSync(req.body.password, user.password);
     if (same) {
-        res.json({ success: 'Bienvenido', token: createToken(user) })
+        res.json({ success: 'Bienvenido', token: createToken(user), id: user.id })
     } else {
         res.json({ error: 'El email y/o contraseña son incorrectos 2' })
     }
