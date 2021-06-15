@@ -1,6 +1,6 @@
-const createUser = ({ user_name, nombre, apellidos, email, telefono, password }) => {
+const createUser = ({ username, nombre, apellidos, email, telefono, password }) => {
     return new Promise((resolve, reject) => {
-        db.query('INSERT INTO usuarios (user_name, nombre, apellidos, email, telefono, password) values (?,?,?,?,?,?)', [user_name, nombre, apellidos, email, telefono, password], (err, row) => {
+        db.query('INSERT INTO usuarios (username, nombre, apellidos, email, telefono, password) values (?,?,?,?,?,?)', [username, nombre, apellidos, email, telefono, password], (err, row) => {
             if (err) reject(err)
             resolve(row)
         })

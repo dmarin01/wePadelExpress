@@ -9,15 +9,14 @@ const getAllUsers = () => {
 }
 
 
+const updateUser = (userID, { nombre, apellidos, email, direccion, telefono, edad, nivel, username }) => {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE usuarios SET nombre = ?, apellidos = ?, email = ?, direccion = ?, telefono = ?, edad = ?, nivel = ?, username = ? WHERE id = ? ', [nombre, apellidos, email, direccion, telefono, edad, nivel, username, userID], (err, result) => {
+            if (err) reject(err);
+            resolve(result)
+        })
+    })
+}
 
 
-
-
-
-
-
-
-
-
-
-module.exports = { getAllUsers, }
+module.exports = { getAllUsers, updateUser }

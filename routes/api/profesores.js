@@ -10,9 +10,13 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/price', async (req, res) => {
+router.get('/price/?min=2&max=30', async (req, res) => {
+
+    const min = req.query.min || 1;
+    const max = req.query.max || 50;
+
     try {
-        const prices = await filterByPrice();
+        const prices = await filterByPrice(parseInt(min), parseInt(max));
         res.json(prices)
     } catch (err) {
         res.json({ error: err.message })

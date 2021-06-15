@@ -4,7 +4,7 @@ GET http://localhost:3000/api/clientes
 GET http://localhost:3000/api/profesores
 ###
 
-GET http://localhost:3000/api/profesores/price
+GET http://localhost:3000/api/profesores/price/?min=20&max=30
 ###
 
 GET http://localhost:3000/api/clientes/user/3
@@ -20,12 +20,9 @@ Content-Type: application/json
     "material_propio": 1, 
     "niveles": 5, 
     "desplazamiento":1, 
-    "rango_desplazamiento":30, 
-    "nombre": "Fernando", 
-    "apellidos":"Alonso Ruiz", 
-    "email":"FernandoAlonso@gmail.com", 
-    "direccion":"Calle Renault, 23", 
-    "telefono": 673429509
+    "rango_desplazamiento":30,
+    "fk_usuario": 1 
+   
 }
 
 ### REGISTRO DE USUARIO
@@ -33,10 +30,10 @@ POST http://localhost:3000/api/usuarios/register
 Content-Type: application/json
 
 {
-    "user_name": "Jualolo10", 
+    "username": "Jualolo10", 
     "nombre": "Fernando", 
     "apellidos":"Alonso Ruiz", 
-    "email":"definitivo@gmail.com", 
+    "email":"definitivo2@gmail.com", 
     "telefono": 673429509,
     "password":"1234"
 }
@@ -48,4 +45,13 @@ Content-Type: application/json
 {
     "email": "definitivo@gmail.com",
     "password": "1234"
+}
+
+###
+PUT http://localhost:3000/api/clientes/update/21
+Content-Type: application/json
+
+{
+    "nombre": "Ferreterias Luso",
+    "nivel": "1.5"
 }
