@@ -4,7 +4,7 @@ GET http://localhost:3000/api/clientes
 GET http://localhost:3000/api/profesores
 ###
 
-GET http://localhost:3000/api/profesores/price/?min=20&max=30
+GET http://localhost:3000/api/profesores/price/?min=8&max=16
 ###
 
 GET http://localhost:3000/api/clientes/user/3
@@ -15,13 +15,13 @@ POST http://localhost:3000/api/profesores/create
 Content-Type: application/json
 
 {
-    "experiencia": 9, 
-    "precio": 35, 
+    "experiencia": 3, 
+    "precio": 8, 
     "material_propio": 1, 
-    "niveles": 5, 
+    "niveles": 3, 
     "desplazamiento":1, 
     "rango_desplazamiento":30,
-    "fk_usuario": 1 
+    "fk_usuario": 20 
    
 }
 
