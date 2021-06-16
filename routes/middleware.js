@@ -5,7 +5,7 @@ const { getById } = require('../models/usuario.model')
 
 const checkToken = async (req, res, next) => {
 
-
+    console.log(req.header['authorization']);
     if (!req.header['authorization']) {
         return res.json({ error: 'Necesitas cabecera de autenticación' })
     }
@@ -34,3 +34,5 @@ const checkToken = async (req, res, next) => {
     next();
 
 }
+
+module.exports = { checkToken }

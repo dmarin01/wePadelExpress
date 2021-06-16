@@ -25,6 +25,8 @@ router.get('/price', async (req, res) => {
     }
 })
 
+
+
 router.post('/create', async (req, res) => {
     try {
         const createProf = await createProfesor(req.body);
@@ -33,5 +35,7 @@ router.post('/create', async (req, res) => {
         res.json({ error: err.message })
     }
 })
+
+
 
 module.exports = router;

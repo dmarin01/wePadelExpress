@@ -21,7 +21,7 @@ Content-Type: application/json
     "niveles": 3, 
     "desplazamiento":1, 
     "rango_desplazamiento":30,
-    "fk_usuario": 20 
+    "fk_usuario": 14 
    
 }
 
@@ -54,4 +54,13 @@ Content-Type: application/json
 {
     "nombre": "Ferreterias Luso",
     "nivel": "1.5"
+}
+
+
+###
+PUT http://localhost:3000/api/clientes/upimg
+Content-Type: application/json
+
+{
+    "img_cliente": "soeosoeososos"
 }

@@ -18,5 +18,14 @@ const updateUser = (userID, { nombre, apellidos, email, direccion, telefono, eda
     })
 }
 
+const upImg = (img, id) => {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE usuarios SET img_cliente= ? WHERE id = ?', [img, id], (err, select) => {
+            if (err) reject(err)
+            resolve(select)
+        })
+    })
+}
 
-module.exports = { getAllUsers, updateUser }
+
+module.exports = { getAllUsers, updateUser, upImg }
