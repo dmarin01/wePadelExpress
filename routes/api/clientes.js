@@ -37,20 +37,20 @@ router.put('/update/:id', async (req, res) => {
 
 router.put('/upimg', upload.single('img'), async (req, res) => {
     console.log(req.user)
-    const extension = '.' + fileURLToPath.mimetyp.split('/');[1];
+    const extension = '.' + req.file.mimetype.split('/')[1];
 
-    const newName = req.file.filename + extension;
-
-    const newPath = 'http://localhost:3000/api/clientes/upimg/' + req.file.path + extension;
+    const newName = 'http://localhost:3000/images/' + req.file.filename + extension;
+    console.log(newName);
+    const newPath = req.file.path + extension;
 
     fs.renameSync(req.file.path, newPath)
 
     req.body.img = newName;
 
-
+    console.log(req.body.img, req.user.id)
     try {
-        const upPhoto = await upImg(req.body, req.user.id)
-        res.json(upPhoto)
+        const upPhoto = await upImg(req.body.img, req.user.id)
+        res.json({ success: upPhoto, id: req.user.id })
     } catch (err) {
         res.json({ error: err.message })
     }

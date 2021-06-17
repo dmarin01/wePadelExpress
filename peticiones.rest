@@ -4,11 +4,15 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMywiZXhwaXJh
 ###
 
 GET http://localhost:3000/api/profesores
-###
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMywiZXhwaXJhdGlvbiI6MTYzMTYzMzMwOSwiaWF0IjoxNjIzNjg0NTA5fQ.v7I7l2bRl8uEUqHCzVjS47HVzQchhNEKcg-Obi0OQW4
 
+
+###
 GET http://localhost:3000/api/profesores/price/?min=8&max=16
-###
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMywiZXhwaXJhdGlvbiI6MTYzMTYzMzMwOSwiaWF0IjoxNjIzNjg0NTA5fQ.v7I7l2bRl8uEUqHCzVjS47HVzQchhNEKcg-Obi0OQW4
 
+
+###
 GET http://localhost:3000/api/clientes/user/3
 
 
