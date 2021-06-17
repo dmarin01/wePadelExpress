@@ -1,4 +1,6 @@
 GET http://localhost:3000/api/clientes
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMywiZXhwaXJhdGlvbiI6MTYzMTYzMzMwOSwiaWF0IjoxNjIzNjg0NTA5fQ.v7I7l2bRl8uEUqHCzVjS47HVzQchhNEKcg-Obi0OQW4
+
 ###
 
 GET http://localhost:3000/api/profesores
@@ -33,7 +35,7 @@ Content-Type: application/json
     "username": "Jualolo10", 
     "nombre": "Fernando", 
     "apellidos":"Alonso Ruiz", 
-    "email":"definitivo2@gmail.com", 
+    "email":"definitivo22@gmail.com", 
     "telefono": 673429509,
     "password":"1234"
 }

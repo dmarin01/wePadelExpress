@@ -6,8 +6,9 @@ const logger = require('morgan');
 const mysql = require('mysql');
 const cors = require('cors');
 
-require('./dbConfig.js');
 require('dotenv').config();
+require('./dbConfig.js');
+
 
 
 

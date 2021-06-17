@@ -5,22 +5,24 @@ const { getById } = require('../models/usuario.model')
 
 const checkToken = async (req, res, next) => {
 
-    console.log(req.header['authorization']);
-    if (!req.header['authorization']) {
+
+    if (!req.headers['authorization']) {
         return res.json({ error: 'Necesitas cabecera de autenticación' })
     }
 
-    const token = req.header['authorization'];
-
+    const token = req.headers['authorization'];
+    console.log(token);
     let obj;
 
     try {
-        obj = jwt.verify(token, 'success');
+        obj = jwt.verify(token, 'token user');
+
     } catch (err) {
         return res.json({ error: err.massage })
     }
 
     const currentDate = dayjs().unix();
+    console.log(currentDate);
     if (currentDate > obj.expiration) {
         return res.json({ error: 'Token caducado' })
     }
