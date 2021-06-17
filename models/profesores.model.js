@@ -27,4 +27,24 @@ const filterByPrice = (price1 = 1, price2 = 50) => {
     })
 }
 
-module.exports = { getAllProfesores, filterByPrice, createProfesor }
+
+const filterByLevel = (level) => {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM wepadel_bbdd.profesores WHERE niveles = ?', [level], (err, rows) => {
+            if (err) reject(err)
+            resolve(rows)
+        })
+    })
+}
+
+const filterByInstalacions = (boolean = 1) => {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM wepadel_bbdd.profesores WHERE instalacion_propia = ?', [boolean], (err, rows) => {
+            if (err) reject(err)
+            resolve(rows)
+
+        })
+    })
+}
+
+module.exports = { getAllProfesores, filterByPrice, createProfesor, filterByInstalacions, filterByLevel }
