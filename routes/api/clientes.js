@@ -41,7 +41,7 @@ router.put('/upimg', upload.single('img'), async (req, res) => {
 
     const newName = req.file.filename + extension;
 
-    const newPath = 'http://localhost:3000/images/' + req.file.path + extension;
+    const newPath = 'http://localhost:3000/api/clientes/upimg/' + req.file.path + extension;
 
     fs.renameSync(req.file.path, newPath)
 
