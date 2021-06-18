@@ -22,7 +22,6 @@ const checkToken = async (req, res, next) => {
     }
 
     const currentDate = dayjs().unix();
-    console.log(currentDate);
     if (currentDate > obj.expiration) {
         return res.json({ error: 'Token caducado' })
     }
