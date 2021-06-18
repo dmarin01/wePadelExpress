@@ -16,9 +16,9 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/user/:id', async (req, res) => {
+router.get('/user', async (req, res) => {
     try {
-        const user = await getById(req.params.id)
+        const user = await getById(req.user.id)
         res.json(user)
 
     } catch (err) {
