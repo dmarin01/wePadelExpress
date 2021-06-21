@@ -1,7 +1,6 @@
 const { getById } = require('../../models/usuario.model')
 const { getAllUsers, updateUser, upImg } = require('../../models/clientes.model');
 const fs = require('fs');
-const { fileURLToPath } = require('url');
 const multer = require('multer');
 const upload = multer({ dest: 'public/images' });
 
@@ -26,9 +25,9 @@ router.get('/user', async (req, res) => {
     }
 })
 
-router.put('/update/:id', async (req, res) => {
+router.put('/update', async (req, res) => {
     try {
-        const update = await updateUser(req.params.id, req.body)
+        const update = await updateUser(req.user.id, req.body)
         res.json(update)
     } catch (err) {
         res.json({ error: err.message })
