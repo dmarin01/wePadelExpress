@@ -48,7 +48,8 @@ router.get('/instalations/:boolean', async (req, res) => {
 
 router.post('/create', async (req, res) => {
     try {
-        const createProf = await createProfesor(req.body);
+        req.user.id = req.body.fk_usuario
+        const createProf = await createProfesor(req.body, req.user.id);
         res.json(createProf)
     } catch (err) {
         res.json({ error: err.message })
