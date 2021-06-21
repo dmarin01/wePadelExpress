@@ -30,6 +30,7 @@ const checkToken = async (req, res, next) => {
     const user = await getById(obj.user_id);
 
     req.user = user
+    console.log(req.user);
 
 
     next();

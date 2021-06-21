@@ -27,5 +27,14 @@ const upImg = (img, id) => {
     })
 }
 
+const changePassword = (password, id) => {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE usuarios SET password = ? WHERE id = ?', [password, id], (err, row) => {
+            if (err) reject(err)
+            resolve(row)
+        })
+    })
+}
 
-module.exports = { getAllUsers, updateUser, upImg }
+
+module.exports = { getAllUsers, updateUser, upImg, changePassword }

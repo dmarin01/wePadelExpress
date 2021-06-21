@@ -27,20 +27,21 @@ router.post('/login', async (req, res) => {
     const user = await getByEmail(req.body.email);
     console.log(user);
     if (!user) {
-        return res.json({ error: 'El email y/o contraseña son incorrectos 1' })
+        return res.json({ error: 'El email y/o contraseña son incorrectos' })
     }
 
     const same = bscrypt.compareSync(req.body.password, user.password);
     if (same) {
         res.json({ success: 'Bienvenido', token: createToken(user), id: user.id })
     } else {
-        res.json({ error: 'El email y/o contraseña son incorrectos 2' })
+        res.json({ error: 'El email y/o contraseña son incorrectos' })
     }
 
 })
 
 
 function createToken(user) {
+
     const obj = {
         user_id: user.id,
         expiration: dayjs().add(3, 'M').unix()

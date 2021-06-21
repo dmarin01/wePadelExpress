@@ -30,7 +30,7 @@ const filterByPrice = (price1 = 1, price2 = 50) => {
 
 const filterByLevel = (level) => {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM wepadel_bbdd.profesores WHERE niveles = ?', [level], (err, rows) => {
+        db.query('SELECT * FROM profesores WHERE niveles = ?', [level], (err, rows) => {
             if (err) reject(err)
             resolve(rows)
         })
@@ -39,7 +39,7 @@ const filterByLevel = (level) => {
 
 const filterByInstalacions = (boolean = 1) => {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM wepadel_bbdd.profesores WHERE instalacion_propia = ?', [boolean], (err, rows) => {
+        db.query('SELECT * FROM profesores WHERE instalacion_propia = ?', [boolean], (err, rows) => {
             if (err) reject(err)
             resolve(rows)
 
