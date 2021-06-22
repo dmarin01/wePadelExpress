@@ -20,7 +20,7 @@ const createProfesor = (id, { experiencia, precio, material_propio, niveles, des
 
 const filterByPrice = (price1 = 1, price2 = 50) => {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM profesores where precio >= ? and precio <= ? order by precio asc', [price1, price2], (err, rows) => {
+        db.query('SELECT usuarios.*,profesores.* FROM usuarios, profesores WHERE usuarios.id = profesores.fk_usuario AND precio >= ? and precio <= ? order by precio asc', [price1, price2], (err, rows) => {
             if (err) reject(err);
             resolve(rows)
         })
@@ -30,7 +30,7 @@ const filterByPrice = (price1 = 1, price2 = 50) => {
 
 const filterByLevel = (level) => {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM profesores WHERE niveles = ?', [level], (err, rows) => {
+        db.query('SELECT usuarios.img_cliente,profesores.* FROM usuarios, profesores WHERE usuarios.id = profesores.fk_usuario AND niveles = ?', [level], (err, rows) => {
             if (err) reject(err)
             resolve(rows)
         })
@@ -39,7 +39,7 @@ const filterByLevel = (level) => {
 
 const filterByInstalacions = (boolean = 1) => {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM profesores WHERE instalacion_propia = ?', [boolean], (err, rows) => {
+        db.query('SELECT usuarios.*,profesores.* FROM usuarios, profesores WHERE usuarios.id = profesores.fk_usuario AND instalacion_propia = ?', [boolean], (err, rows) => {
             if (err) reject(err)
             resolve(rows)
 
