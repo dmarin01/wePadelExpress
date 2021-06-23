@@ -1,6 +1,6 @@
 
 
-const getAllProfesores = (limit = 10, page = 1) => {
+const getAllProfesores = (limit = 20, page = 1) => {
     return new Promise((resolve, reject) => {
         db.query('SELECT usuarios.*,profesores.* FROM usuarios, profesores WHERE usuarios.id = profesores.fk_usuario LIMIT ?,?', [limit * (page - 1), limit], (err, rows) => {
             if (err) reject(err);
@@ -8,6 +8,16 @@ const getAllProfesores = (limit = 10, page = 1) => {
         })
     })
 }
+
+const getByid = (id) => {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM usuarios as u, profesores as p WHERE u.id = ? AND p.fk_usuario = u.id', [id], (err, row) => {
+            if (err) reject(err);
+            resolve(row);
+        })
+    })
+}
+
 
 const createProfesor = ({ experiencia, precio, material_propio, niveles, desplazamiento, fk_usuario }) => {
     return new Promise((resolve, reject) => {
@@ -30,7 +40,7 @@ const filterByPrice = (price1 = 1, price2 = 50) => {
 
 const filterByLevel = (level) => {
     return new Promise((resolve, reject) => {
-        db.query('SELECT usuarios.img_cliente,profesores.* FROM usuarios, profesores WHERE usuarios.id = profesores.fk_usuario AND niveles = ?', [level], (err, rows) => {
+        db.query('SELECT usuarios.*,profesores.* FROM usuarios, profesores WHERE usuarios.id = profesores.fk_usuario AND niveles = ?', [level], (err, rows) => {
             if (err) reject(err)
             resolve(rows)
         })
@@ -47,4 +57,14 @@ const filterByInstalacions = (boolean = 1) => {
     })
 }
 
-module.exports = { getAllProfesores, filterByPrice, createProfesor, filterByInstalacions, filterByLevel }
+
+const filterByProvincia = (provincia = 'madrid') => {
+    return new Promise((resolve, reject) => {
+        db.query('', [provincia], (err, row) => {
+            if (err) reject(err)
+            resolve(rows)
+        })
+    })
+}
+
+module.exports = { getAllProfesores, filterByPrice, createProfesor, filterByInstalacions, filterByLevel, filterByProvincia, getByid }

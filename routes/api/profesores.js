@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllProfesores, filterByPrice, createProfesor, filterByLevel, filterByInstalacions } = require('../../models/profesores.model')
+const { getAllProfesores, filterByPrice, createProfesor, filterByLevel, filterByInstalacions, filterByProvincia, getByid } = require('../../models/profesores.model')
 
 router.get('/', async (req, res) => {
     try {
@@ -26,10 +26,21 @@ router.get('/price', async (req, res) => {
 })
 
 
+router.get('/detalle/:id', async (req, res) => {
+    try {
+        console.log(req.params.id);
+        const detalle = await getByid(req.params.id)
+        res.json(detalle)
+    } catch (err) {
+        res.json({ error: err.message })
+    }
+})
+
+
 router.get('/level/:number', async (req, res) => {
     try {
         const level = await filterByLevel(req.params.number)
-        return res.json(level)
+        res.json(level)
     } catch (err) {
         res.json({ error: err.message })
     }
@@ -38,7 +49,7 @@ router.get('/level/:number', async (req, res) => {
 router.get('/instalations/:boolean', async (req, res) => {
     try {
         const instalations = await filterByInstalacions(req.params.boolean)
-        return res.json(instalations)
+        res.json(instalations)
     } catch (err) {
         res.json({ error: err.message })
     }

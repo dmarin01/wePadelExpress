@@ -2,7 +2,13 @@ GET http://localhost:3000/api/clientes
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMywiZXhwaXJhdGlvbiI6MTYzMTYzMzMwOSwiaWF0IjoxNjIzNjg0NTA5fQ.v7I7l2bRl8uEUqHCzVjS47HVzQchhNEKcg-Obi0OQW4
 
 ###
+GET http://localhost:3000/api/profesores/detalle/28
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMywiZXhwaXJhdGlvbiI6MTYzMTYzMzMwOSwiaWF0IjoxNjIzNjg0NTA5fQ.v7I7l2bRl8uEUqHCzVjS47HVzQchhNEKcg-Obi0OQW4
 
+
+
+
+###
 GET http://localhost:3000/api/profesores
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyNywiZXhwaXJhdGlvbiI6MTYzMjIzNDcwMywiaWF0IjoxNjI0Mjg1OTAzfQ.BEwM9QQJNmF70VaBrhFH6s-nHp3n6sRvCDIS7bhR1t0
 
