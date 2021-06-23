@@ -13,7 +13,7 @@ const getByid = (id) => {
     return new Promise((resolve, reject) => {
         db.query('SELECT * FROM usuarios as u, profesores as p WHERE u.id = ? AND p.fk_usuario = u.id', [id], (err, row) => {
             if (err) reject(err);
-            resolve(row);
+            resolve(row[0]);
         })
     })
 }
@@ -60,7 +60,7 @@ const filterByInstalacions = (boolean = 1) => {
 
 const filterByProvincia = (provincia = 'madrid') => {
     return new Promise((resolve, reject) => {
-        db.query('', [provincia], (err, row) => {
+        db.query('SELECT * FROM usuarios WHERE provincia = ?', [provincia], (err, rows) => {
             if (err) reject(err)
             resolve(rows)
         })

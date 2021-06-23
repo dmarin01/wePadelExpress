@@ -27,6 +27,7 @@ router.get('/user', async (req, res) => {
 })
 
 router.put('/update', async (req, res) => {
+    console.log(req.body);
     try {
         const update = await updateUser(req.user.id, req.body)
         res.json(update)
@@ -40,7 +41,7 @@ router.put('/upimg', upload.single('img'), async (req, res) => {
     const extension = '.' + req.file.mimetype.split('/')[1];
 
     const newName = 'http://localhost:3000/images/' + req.file.filename + extension;
-    console.log(newName);
+
     const newPath = req.file.path + extension;
 
     fs.renameSync(req.file.path, newPath)
@@ -58,7 +59,7 @@ router.put('/upimg', upload.single('img'), async (req, res) => {
 
 router.put('/changepw', async (req, res) => {
 
-    console.log(req.body);
+
     req.body.password1 = bcrypt.hashSync(req.body.password1, 10);
 
     try {

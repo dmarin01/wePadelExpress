@@ -14,7 +14,7 @@ router.get('/price', async (req, res) => {
 
     let min = req.query.min;
     let max = req.query.max;
-    console.log(min, max);
+
 
     try {
         const prices = await filterByPrice(min, max);
@@ -28,7 +28,7 @@ router.get('/price', async (req, res) => {
 
 router.get('/detalle/:id', async (req, res) => {
     try {
-        console.log(req.params.id);
+
         const detalle = await getByid(req.params.id)
         res.json(detalle)
     } catch (err) {
@@ -55,6 +55,15 @@ router.get('/instalations/:boolean', async (req, res) => {
     }
 })
 
+
+router.get('/provincia/:provincia', async (req, res) => {
+    try {
+        const provincia = await filterByProvincia(req.params.provincia)
+        res.json(provincia)
+    } catch (err) {
+        res.json({ error: err.message })
+    }
+})
 
 
 router.post('/create', async (req, res) => {
