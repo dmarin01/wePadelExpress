@@ -58,9 +58,9 @@ const filterByInstalacions = (boolean = 1) => {
 }
 
 
-const filterByProvincia = (provincia = 'madrid') => {
+const filterByProvincia = (provincia) => {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM usuarios WHERE provincia = ?', [provincia], (err, rows) => {
+        db.query('SELECT usuarios.*,profesores.* FROM usuarios, profesores WHERE usuarios.id = profesores.fk_usuario AND provincia = ?', [provincia], (err, rows) => {
             if (err) reject(err)
             resolve(rows)
         })
