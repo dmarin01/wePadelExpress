@@ -9,9 +9,9 @@ const getAllUsers = () => {
 }
 
 
-const updateUser = (userID, { nombre, apellidos, email, provincia, telefono, edad, nivel, username }) => {
+const updateUser = (userID, { nombre, apellidos, email, provincia, telefono, edad, nivel, username, descripcion }) => {
     return new Promise((resolve, reject) => {
-        db.query('UPDATE usuarios SET nombre = ?, apellidos = ?, email = ?, provincia = ?, telefono = ?, edad = ?, nivel = ?, username = ? WHERE id = ? ', [nombre, apellidos, email, provincia, telefono, edad, nivel, username, userID], (err, result) => {
+        db.query('UPDATE usuarios SET nombre = ?, apellidos = ?, email = ?, provincia = ?, telefono = ?, edad = ?, nivel = ?, username = ?, descripcion = ? WHERE id = ? ', [nombre, apellidos, email, provincia, telefono, edad, nivel, username, descripcion, userID], (err, result) => {
             if (err) reject(err);
             resolve(result)
         })
