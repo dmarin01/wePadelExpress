@@ -19,9 +19,9 @@ const getByid = (id) => {
 }
 
 
-const createProfesor = ({ experiencia, precio, material_propio, niveles, desplazamiento, fk_usuario }) => {
+const createProfesor = ({ experiencia, precio, material_propio, niveles, desplazamiento, fk_usuario, instalacion_propia, descripcion_profesor }) => {
     return new Promise((resolve, reject) => {
-        db.query('INSERT INTO profesores (experiencia, precio, material_propio, niveles, desplazamiento, fk_usuario) VALUES (?, ?, ?, ?, ?, ?)', [experiencia, precio, material_propio, niveles, desplazamiento, fk_usuario], (err, results) => {
+        db.query('INSERT INTO profesores (experiencia, precio, material_propio, niveles, desplazamiento, fk_usuario, instalacion_propia, descripcion_profesor) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [experiencia, precio, material_propio, niveles, desplazamiento, fk_usuario, instalacion_propia, descripcion_profesor], (err, results) => {
             if (err) reject(err);
             resolve(results);
         })
